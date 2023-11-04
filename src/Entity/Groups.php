@@ -19,34 +19,54 @@ class Groups
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $Gid;
+    private $gid;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255, nullable=false)
+     * @ORM\Column(name="nom", type="string", length=20, nullable=false)
      */
     private $nom;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="size", type="integer", nullable=false)
+     * @ORM\Column(name="Size", type="integer", nullable=false)
      */
-    private $size = '0';
+    private $size=0;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="logo", type="string", length=255, nullable=false)
+     * @ORM\Column(name="logo", type="string", length=500, nullable=false)
      */
     private $logo;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Utilisateur", inversedBy="groupid")
+     * @ORM\JoinTable(name="membre",
+     *   joinColumns={
+     *     @ORM\JoinColumn(name="GroupID", referencedColumnName="Gid")
+     *   },
+     *   inverseJoinColumns={
+     *     @ORM\JoinColumn(name="UserID", referencedColumnName="id")
+     *   }
+     * )
+     */
+    private $userid = array();
 
-
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->userid = new \Doctrine\Common\Collections\ArrayCollection();
+    }
     public function getId(): ?int
     {
-        return $this->Gid;
+        return $this->gid;
     }
 
     public function getnom(): ?String
