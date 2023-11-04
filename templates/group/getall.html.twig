@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    {{ parent() }}
+
+    <div style="margin-top: 50px;">
+        <h1 style="text-align: center;">List of Groups</h1>
+
+        <table style="border-collapse: collapse; width: 80%; margin: 0 auto; margin-top: 20px;">
+            <thead style="background-color: #f2f2f2;">
+                <tr>
+                    <th style="padding: 10px;">Group Name</th>
+                    <th style="padding: 10px;">Size</th>
+                    <th style="padding: 10px;">Logo</th>
+                    <th style="padding: 10px;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for group in groups %}
+                    <tr style="border-bottom: 1px solid #ccc;">
+                        <td style="padding: 10px;">{{ group.nom }}</td>
+                        <td style="padding: 10px;">{{ group.size }}</td>
+                        <td style="padding: 10px;">
+                            <img src="{{ asset(group.logo) }}" alt="Group Logo" style="width: 100px; height: auto; border-radius: 5px; box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);">
+                        </td>
+                        <td style="padding: 10px;">
+                            <a href="#" class="btn btn-danger" onclick="return confirmDelete({{ group.id }})" style="text-decoration: none; padding: 5px 10px; border-radius: 5px; color: white;">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        function confirmDelete(groupId) {
+            if (confirm("Are you sure you want to delete this group?")) {
+                window.location.href = "{{ path('deletegroup', {'id': 'GROUP_ID'}) }}".replace('GROUP_ID', groupId);
+            }
+            return false;
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {{ parent() }}
+
+    <div style="margin-top: 50px; text-align: center;">
+        <h1 style="font-size: 24px; margin-bottom: 20px;">Create Group</h1>
+        
+        {{ form_start(f) }}
+        
+        <div style="max-width: 300px; margin: 0 auto;">
+            <div style="margin-bottom: 15px;">
+                {{ form_label(f.nom) }}
+                {{ form_widget(f.nom, { 'attr': {'class': 'form-control', 'placeholder': 'Enter Group Name'} }) }}
+            </div>
+            
+            <div style="margin-bottom: 15px;">
+                {{ form_label(f.logo, 'Upload Image') }}
+                {{ form_widget(f.logo, { 'attr': {'accept': 'image/*', 'class': 'form-control'} }) }}
+            </div>
+
+            <button type="submit" class="btn btn-primary">Confirm</button>
+        </div>
+
+        {{ form_end(f) }}
+    </div>
+{% endblock %}
