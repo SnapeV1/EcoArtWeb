@@ -21,10 +21,9 @@ class MembreController extends AbstractController
     #[Route('/getmembers/{id}', name: 'members_getall')]
     public function getMembers($id): Response
     {
-        // Use the injected entity manager
-        $members = $this->entityManager->getRepository(Membre::class)->findBy(['GroupID' => $id]);
+        $members = $this->entityManager->getRepository(Membre::class)->findBy(['group' => $id]);
 
-        return $this->render('members.html.twig', [
+        return $this->render('membre/members.html.twig', [
             'members' => $members,
         ]);
     }

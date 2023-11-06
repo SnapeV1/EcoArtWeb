@@ -1,23 +1,56 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Members of the Group</h1>
-    <table>
-        <tr>
-            <th>Username</th>
-            <th>CIN</th>
-            <th>Email</th>
-            <th>Date of Birth</th>
-            <th>Role</th>
-        </tr>
-        {% for member in members %}
+    {{ parent() }}
+    <!-- In the head section -->
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: center; /* Center table content */
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: center; /* Center table cell content */
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+    .display{
+          text-align: center;
+    }
+</style>
+
+    <h1 style="text-align: center;">Members of the Group</h1>
+    <div style="display: flex; justify-content: center;">
+        <table style="width: 70%;">
             <tr>
-                <td>{{ member.getUsername() }}</td>
-                <td>{{ member.getCin() }}</td>
-                <td>{{ member.getEmail() }}</td>
-                <td>{{ member.getDateNaissance()|date('Y-m-d') }}</td>
-                <td>{{ member.getRole() }}</td>
+                <th>Username</th>
+                <th>CIN</th>
+                <th>Email</th>
+                <th>Date of Birth</th>
+                <th>Role</th>
             </tr>
-        {% endfor %}
-    </table>
+            {% for member in members %}
+                <tr>
+                    <td>{{ member.getUser().getUsername() }}</td>
+                    <td>{{ member.getUser().getCin() }}</td>
+                    <td>{{ member.getUser().getEmail() }}</td>
+                    <td>{{ member.getUser().getDateNaissance()|date('Y-m-d') }}</td>
+                    <td>{{ member.getRole() }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}
