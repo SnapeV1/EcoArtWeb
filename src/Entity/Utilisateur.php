@@ -2,108 +2,179 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\UtilisateurRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 
-/**
- * Utilisateur
- *
- * @ORM\Table(name="utilisateur")
- * @ORM\Entity
- */
+#[ORM\Entity(repositoryClass: UtilisateurRepository::class)]
 class Utilisateur
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom", type="string", length=40, nullable=false)
-     */
-    private $nom;
+    #[Assert\NotBlank(message:"Name can't be empty")]
+    #[ORM\Column(length:30)]
+    private ?string $nom= null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="prenom", type="string", length=40, nullable=false)
-     */
-    private $prenom;
+    #[Assert\NotBlank(message:"Lastname can't be empty")]
+    #[ORM\Column(length:30)]
+    private ?string $prenom=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="date_naissance", type="string", length=10, nullable=false)
-     */
-    private $dateNaissance;
+    #[Assert\NotBlank(message:"Birthdate can't be empty")]
+    #[Assert\Date(message:"Invalid date")]
+    #[ORM\Column(length:30)]
+    private $dateNaissance=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="CIN", type="string", length=10, nullable=false)
-     */
-    private $cin;
+    #[Assert\Length(min:8 , minMessage:"Cin too short")]
+    #[ORM\Column(length:10)]
+    private ?string $cin=null;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="age", type="integer", nullable=false)
-     */
-    private $age;
+    #[ORM\Column]
+    private ?int $age=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="pic", type="string", length=500, nullable=false)
-     */
-    private $pic;
+    #[ORM\Column(length:200)]
+    private ?string $pic=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="username", type="string", length=50, nullable=false)
-     */
-    private $username;
+    #[ORM\Column(length:20)]
+    private ?string $username=null;
+    #[Assert\NotBlank(message:"Password can't be null")]
+    #[ORM\Column(length:40)]
+    private ?string $password=null;
+    #[Assert\NotBlank(message:"Email can't be empty")]
+    #[Assert\Email(message:"Invalid Email")]
+    #[ORM\Column(length:100)]
+    private ?string $email=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password", type="string", length=50, nullable=false)
-     */
-    private $password;
+    #[ORM\Column(length:15)]
+    private ?string $type;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=50, nullable=false)
-     */
-    private $email;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="type", type="string", length=50, nullable=false)
-     */
-    private $type;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Groups", mappedBy="userid")
-     */
-    private $groupid = array();
-
-    /**
-     * Constructor
-     */
-    public function __construct()
+    public function getId(): ?string
     {
-        $this->groupid = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->id;
     }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): static
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getPrenom(): ?string
+    {
+        return $this->prenom;
+    }
+
+    public function setPrenom(string $prenom): static
+    {
+        $this->prenom = $prenom;
+
+        return $this;
+    }
+
+    public function getDateNaissance(): ?string
+    {
+        return $this->dateNaissance;
+    }
+
+    public function setDateNaissance(string $dateNaissance): static
+    {
+        $this->dateNaissance = $dateNaissance;
+
+        return $this;
+    }
+
+    public function getCin(): ?string
+    {
+        return $this->cin;
+    }
+
+    public function setCin(string $cin): static
+    {
+        $this->cin = $cin;
+
+        return $this;
+    }
+
+    public function getAge(): ?int
+    {
+        return $this->age;
+    }
+
+    public function setAge(int $age): static
+    {
+        $this->age = $age;
+
+        return $this;
+    }
+
+    public function getPic(): ?string
+    {
+        return $this->pic;
+    }
+
+    public function setPic(string $pic): static
+    {
+        $this->pic = $pic;
+
+        return $this;
+    }
+
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    public function setUsername(string $username): static
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function setPassword(string $password): static
+    {
+        $this->password = $password;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): static
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): static
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
 
 }
