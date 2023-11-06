@@ -14,8 +14,13 @@ return [
         '/_profiler/phpinfo' => [[['_route' => '_profiler_phpinfo', '_controller' => 'web_profiler.controller.profiler::phpinfoAction'], null, null, null, false, false, null]],
         '/_profiler/xdebug' => [[['_route' => '_profiler_xdebug', '_controller' => 'web_profiler.controller.profiler::xdebugAction'], null, null, null, false, false, null]],
         '/_profiler/open' => [[['_route' => '_profiler_open_file', '_controller' => 'web_profiler.controller.profiler::openAction'], null, null, null, false, false, null]],
+        '/event/user' => [[['_route' => 'app_event_user', '_controller' => 'App\\Controller\\EventUserController::index'], null, null, null, false, false, null]],
+        '/getAll' => [
+            [['_route' => 'eventuser_getall', '_controller' => 'App\\Controller\\EventUserController::getAll'], null, null, null, false, false, null],
+            [['_route' => 'groups_getall', '_controller' => 'App\\Controller\\GroupController::getAll'], null, null, null, false, false, null],
+        ],
+        '/addEventForm' => [[['_route' => 'author_add', '_controller' => 'App\\Controller\\EventUserController::addAuthor'], null, null, null, false, false, null]],
         '/index' => [[['_route' => 'app_group', '_controller' => 'App\\Controller\\GroupController::index'], null, null, null, false, false, null]],
-        '/getAll' => [[['_route' => 'groups_getall', '_controller' => 'App\\Controller\\GroupController::getAll'], null, null, null, false, false, null]],
         '/add' => [[['_route' => 'addgroup', '_controller' => 'App\\Controller\\GroupController::addGroup'], null, null, null, false, false, null]],
     ],
     [ // $regexpList

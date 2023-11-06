@@ -159,6 +159,6 @@ class __TwigTemplate_9f32264fbfccf9113c35ba812702bf65 extends Template
 </div>
 {{parent()}}
 {% endblock %}
-", "group/index.html.twig", "C:\\Users\\hamad\\OneDrive\\Desktop\\WebProject\\WebProjectV2\\templates\\group\\index.html.twig");
+", "group/index.html.twig", "C:\\Users\\ASUS\\Downloads\\EcoArtWeb-main\\EcoArtWeb-main\\templates\\group\\index.html.twig");
     }
 }

@@ -593,6 +593,6 @@ class __TwigTemplate_daa0b547cd44608b66bd290b3ac8dac3 extends Template
     {% endblock %}
 </body>
 </html>
-", "base.html.twig", "C:\\Users\\hamad\\OneDrive\\Desktop\\WebProject\\WebProjectV2\\templates\\base.html.twig");
+", "base.html.twig", "C:\\Users\\ASUS\\Downloads\\EcoArtWeb-main\\EcoArtWeb-main\\templates\\base.html.twig");
     }
 }

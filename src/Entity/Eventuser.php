@@ -19,56 +19,122 @@ class Eventuser
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+   
+    private ?int $id = null;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=30, nullable=false)
      */
-    private $nom;
+    #[ORM\Column(length:30)]
+    private ?string $nom = null;
 
     /**
      * @var string
      *
      * @ORM\Column(name="date", type="string", length=30, nullable=false)
      */
-    private $date;
+    #[ORM\Column(length:30)]
+    private ?string $date = null;
 
     /**
      * @var string
      *
      * @ORM\Column(name="lieu", type="string", length=30, nullable=false)
      */
-    private $lieu;
+    #[ORM\Column(length:30)]
+    private ?string $lieu = null;
 
     /**
      * @var string
      *
      * @ORM\Column(name="description", type="string", length=100, nullable=false)
      */
-    private $description;
+    #[ORM\Column(length:100)]
+    private ?string $description = null;
 
     /**
      * @var string
      *
      * @ORM\Column(name="image", type="string", length=100, nullable=false)
      */
-    private $image;
+    #[ORM\Column(length:100)]
+    private ?string $image=null;
 
     /**
      * @var int
      *
      * @ORM\Column(name="prix", type="integer", nullable=false)
      */
-    private $prix;
+    private ?int $prix =null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="path_qr", type="string", length=255, nullable=false)
-     */
-    private $pathQr;
+   
 
 
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+    public function setId(?int $id)
+    {
+        $this->id = $id;
+    }
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+    public function setNom(?string $nom)
+    {
+        $this->nom = $nom;
+    }
+    public function getDate(): ?string
+    {
+        return $this->date;
+    }
+    public function setDate(?string $date)
+    {
+        $this->date = $date;
+    }
+    public function getlieu(): ?string
+    {
+        return $this->lieu;
+    }
+    public function setlieu(?string $lieu)
+    {
+        $this->lieu = $lieu;
+    }
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+    public function setDescription(?string $description)
+    {
+        $this->description = $description;
+    }
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+    public function setImage(?string $image)
+    {
+        $this->image = $image;
+    }
+    public function getPrix(): ?int
+    {
+        return $this->prix;
+    }
+    public function setPrix(?int $prix)
+    {
+        $this->prix = $prix;
+    }
+   /* public function getParthQR(): ?string
+    {
+        return $this->pathQr;
+    }
+    public function setPathQR(?string $pathQr): static
+    {
+        $this->pathQr = $pathQr;
+    }*/
+    
 }

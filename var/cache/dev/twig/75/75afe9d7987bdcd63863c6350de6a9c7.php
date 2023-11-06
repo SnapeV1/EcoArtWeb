@@ -73,6 +73,6 @@ class __TwigTemplate_b16be4f1d7ef94213c9de2fc808aec6b extends Template
   <path d=\"M18 20l3 -3l-3 -3\" />
   <line x1=\"21\" y1=\"7\" x2=\"3\" y2=\"7\" />
 </svg>
-", "@WebProfiler/Icon/serializer.svg", "C:\\Users\\hamad\\OneDrive\\Desktop\\WebProject\\WebProjectV2\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Icon\\serializer.svg");
+", "@WebProfiler/Icon/serializer.svg", "C:\\Users\\ASUS\\Downloads\\EcoArtWeb-main\\EcoArtWeb-main\\vendor\\symfony\\web-profiler-bundle\\Resources\\views\\Icon\\serializer.svg");
     }
 }

@@ -33,7 +33,7 @@ class Groups
      *
      * @ORM\Column(name="Size", type="integer", nullable=false)
      */
-    private $size=0;
+    private $size;
 
     /**
      * @var string
@@ -63,46 +63,6 @@ class Groups
     public function __construct()
     {
         $this->userid = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    public function getId(): ?int
-    {
-        return $this->gid;
-    }
-
-    public function getnom(): ?String
-    {
-        return $this->nom;
-    }
-    public function getsize(): ?int
-    {
-        return $this->size;
-    }
-    public function getlogo(): ?String
-    {
-        return $this->logo;
-    }
-
-
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
-    }
-
-    public function setNom(?string $nom): void
-    {
-        $this->nom = $nom;
-    }
-
-   
-    public function setSize(?int $size): void
-    {
-        $this->size = $size;
-    }
-
-
-    public function setLogo(?string $logo): void
-    {
-        $this->logo = $logo;
     }
 
 }

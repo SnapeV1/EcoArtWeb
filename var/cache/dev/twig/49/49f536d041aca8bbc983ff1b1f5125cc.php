@@ -199,6 +199,6 @@ class __TwigTemplate_0ee16102b858ed7a4a69b600ca989273 extends Template
         }
     </script>
 {% endblock %}
-", "group/getall.html.twig", "C:\\Users\\hamad\\OneDrive\\Desktop\\WebProject\\WebProjectV2\\templates\\group\\getall.html.twig");
+", "group/getall.html.twig", "C:\\Users\\ASUS\\Downloads\\EcoArtWeb-main\\EcoArtWeb-main\\templates\\group\\getall.html.twig");
     }
 }
