@@ -89,10 +89,12 @@ class __TwigTemplate_0ee16102b858ed7a4a69b600ca989273 extends Template
         foreach ($context['_seq'] as $context["_key"] => $context["group"]) {
             // line 19
             echo "                    <tr style=\"border-bottom: 1px solid #ccc;\">
-                        <td style=\"padding: 10px;\">";
+                        <td style=\"padding: 10px;\"> <a href=\"";
             // line 20
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("members_getall", ["id" => twig_get_attribute($this->env, $this->source, $context["group"], "id", [], "any", false, false, false, 20)]), "html", null, true);
+            echo "\" style=\"text-decoration: none; color: blue;\">";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["group"], "nom", [], "any", false, false, false, 20), "html", null, true);
-            echo "</td>
+            echo "</a></td>
                         <td style=\"padding: 10px;\">";
             // line 21
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["group"], "size", [], "any", false, false, false, 21), "html", null, true);
@@ -152,7 +154,7 @@ class __TwigTemplate_0ee16102b858ed7a4a69b600ca989273 extends Template
 
     public function getDebugInfo()
     {
-        return array (  128 => 37,  119 => 30,  109 => 26,  103 => 23,  98 => 21,  94 => 20,  91 => 19,  87 => 18,  68 => 3,  58 => 2,  35 => 1,);
+        return array (  130 => 37,  121 => 30,  111 => 26,  105 => 23,  100 => 21,  94 => 20,  91 => 19,  87 => 18,  68 => 3,  58 => 2,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -176,7 +178,7 @@ class __TwigTemplate_0ee16102b858ed7a4a69b600ca989273 extends Template
             <tbody>
                 {% for group in groups %}
                     <tr style=\"border-bottom: 1px solid #ccc;\">
-                        <td style=\"padding: 10px;\">{{ group.nom }}</td>
+                        <td style=\"padding: 10px;\"> <a href=\"{{ path('members_getall', {'id': group.id}) }}\" style=\"text-decoration: none; color: blue;\">{{ group.nom }}</a></td>
                         <td style=\"padding: 10px;\">{{ group.size }}</td>
                         <td style=\"padding: 10px;\">
                             <img src=\"{{ asset(group.logo) }}\" alt=\"Group Logo\" style=\"width: 100px; height: auto; border-radius: 5px; box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);\">

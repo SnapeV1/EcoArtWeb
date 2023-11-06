@@ -335,6 +335,14 @@
         <argument type="service" id=".service_locator.jIxfAsi.App\Controller\GroupController"/>
       </call>
     </service>
+    <service id="App\Controller\MembreController" class="App\Controller\MembreController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.jIxfAsi.App\Controller\MembreController"/>
+      </call>
+    </service>
     <service id="App\Form\GroupType" class="App\Form\GroupType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
@@ -5743,6 +5751,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\GroupController" class="App\Controller\GroupController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\GroupController" class="App\Controller\GroupController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\GroupController" class="App\Controller\GroupController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MembreController" class="App\Controller\MembreController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MembreController" class="App\Controller\MembreController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\MembreController" class="App\Controller\MembreController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\GroupType" class="App\Form\GroupType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\GroupType" class="App\Form\GroupType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\GroupsRepository" class="App\Repository\GroupsRepository" autowire="true" abstract="true"/>
@@ -6684,6 +6695,12 @@
     <service id=".service_locator.jIxfAsi.App\Controller\GroupController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\GroupController"/>
       <argument>App\Controller\GroupController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.jIxfAsi" method="withContext"/>
+    </service>
+    <service id=".service_locator.jIxfAsi.App\Controller\MembreController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\MembreController"/>
+      <argument>App\Controller\MembreController</argument>
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.jIxfAsi" method="withContext"/>
     </service>

@@ -20,4 +20,6 @@ return [
     'groups_getall' => [[], ['_controller' => 'App\\Controller\\GroupController::getAll'], [], [['text', '/getAll']], [], [], []],
     'addgroup' => [[], ['_controller' => 'App\\Controller\\GroupController::addGroup'], [], [['text', '/add']], [], [], []],
     'deletegroup' => [['id'], ['_controller' => 'App\\Controller\\GroupController::deletegroup'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/deletegroup']], [], [], []],
+    'members_getall' => [['id'], ['_controller' => 'App\\Controller\\MembreController::getMembers'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/getmembers']], [], [], []],
+    'app_membre' => [[], ['_controller' => 'App\\Controller\\MembreController::index'], [], [['text', '/membre']], [], [], []],
 ];

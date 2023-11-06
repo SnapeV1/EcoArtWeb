@@ -17,7 +17,7 @@
             <tbody>
                 {% for group in groups %}
                     <tr style="border-bottom: 1px solid #ccc;">
-                        <td style="padding: 10px;">{{ group.nom }}</td>
+                        <td style="padding: 10px;"> <a href="{{ path('members_getall', {'id': group.id}) }}" style="text-decoration: none; color: blue;">{{ group.nom }}</a></td>
                         <td style="padding: 10px;">{{ group.size }}</td>
                         <td style="padding: 10px;">
                             <img src="{{ asset(group.logo) }}" alt="Group Logo" style="width: 100px; height: auto; border-radius: 5px; box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);">
