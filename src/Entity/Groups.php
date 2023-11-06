@@ -15,94 +15,73 @@ class Groups
     /**
      * @var int
      *
-     * @ORM\Column(name="Gid", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $gid;
+    private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=20, nullable=false)
+     * @ORM\Column(name="nom", type="string", length=255, nullable=false)
      */
     private $nom;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="Size", type="integer", nullable=false)
+     * @ORM\Column(name="size", type="integer", nullable=false)
      */
-    private $size=0;
+    private $size;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="logo", type="string", length=500, nullable=false)
+     * @ORM\Column(name="logo", type="string", length=255, nullable=false)
      */
     private $logo;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Utilisateur", inversedBy="groupid")
-     * @ORM\JoinTable(name="membre",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="GroupID", referencedColumnName="Gid")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="UserID", referencedColumnName="id")
-     *   }
-     * )
-     */
-    private $userid = array();
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->userid = new \Doctrine\Common\Collections\ArrayCollection();
-    }
     public function getId(): ?int
     {
-        return $this->gid;
+        return $this->id;
     }
 
-    public function getnom(): ?String
+    public function getNom(): ?string
     {
         return $this->nom;
     }
-    public function getsize(): ?int
+
+    public function setNom(string $nom): static
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getSize(): ?int
     {
         return $this->size;
     }
-    public function getlogo(): ?String
+
+    public function setSize(int $size): static
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
+    public function getLogo(): ?string
     {
         return $this->logo;
     }
 
-
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
-    }
-
-    public function setNom(?string $nom): void
-    {
-        $this->nom = $nom;
-    }
-
-   
-    public function setSize(?int $size): void
-    {
-        $this->size = $size;
-    }
-
-
-    public function setLogo(?string $logo): void
+    public function setLogo(string $logo): static
     {
         $this->logo = $logo;
+
+        return $this;
     }
+
 
 }
