@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -110,12 +112,24 @@ class Utilisateur
         return $this->id;
     }
 
+<<<<<<< HEAD
+=======
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+>>>>>>> yoser
     public function getNom(): ?string
     {
         return $this->nom;
     }
 
+<<<<<<< HEAD
     public function setNom(?string $nom): self
+=======
+    public function setNom(string $nom): static
+>>>>>>> yoser
     {
         $this->nom = $nom;
 
@@ -127,7 +141,11 @@ class Utilisateur
         return $this->prenom;
     }
 
+<<<<<<< HEAD
     public function setPrenom(?string $prenom): self
+=======
+    public function setPrenom(string $prenom): static
+>>>>>>> yoser
     {
         $this->prenom = $prenom;
 
@@ -139,7 +157,11 @@ class Utilisateur
         return $this->dateNaissance;
     }
 
+<<<<<<< HEAD
     public function setDateNaissance(?string $dateNaissance): self
+=======
+    public function setDateNaissance(string $dateNaissance): static
+>>>>>>> yoser
     {
         $this->dateNaissance = $dateNaissance;
 
@@ -151,7 +173,11 @@ class Utilisateur
         return $this->cin;
     }
 
+<<<<<<< HEAD
     public function setCin(?string $cin): self
+=======
+    public function setCin(string $cin): static
+>>>>>>> yoser
     {
         $this->cin = $cin;
 
@@ -163,7 +189,11 @@ class Utilisateur
         return $this->age;
     }
 
+<<<<<<< HEAD
     public function setAge(?int $age): self
+=======
+    public function setAge(int $age): static
+>>>>>>> yoser
     {
         $this->age = $age;
 
@@ -175,7 +205,11 @@ class Utilisateur
         return $this->pic;
     }
 
+<<<<<<< HEAD
     public function setPic(?string $pic): self
+=======
+    public function setPic(string $pic): static
+>>>>>>> yoser
     {
         $this->pic = $pic;
 
@@ -187,7 +221,11 @@ class Utilisateur
         return $this->username;
     }
 
+<<<<<<< HEAD
     public function setUsername(?string $username): self
+=======
+    public function setUsername(string $username): static
+>>>>>>> yoser
     {
         $this->username = $username;
 
@@ -199,7 +237,11 @@ class Utilisateur
         return $this->password;
     }
 
+<<<<<<< HEAD
     public function setPassword(?string $password): self
+=======
+    public function setPassword(string $password): static
+>>>>>>> yoser
     {
         $this->password = $password;
 
@@ -211,7 +253,11 @@ class Utilisateur
         return $this->email;
     }
 
+<<<<<<< HEAD
     public function setEmail(?string $email): self
+=======
+    public function setEmail(string $email): static
+>>>>>>> yoser
     {
         $this->email = $email;
 
@@ -223,10 +269,45 @@ class Utilisateur
         return $this->type;
     }
 
+<<<<<<< HEAD
     public function setType(?string $type): self
+=======
+    public function setType(string $type): static
+>>>>>>> yoser
     {
         $this->type = $type;
 
         return $this;
     }
+<<<<<<< HEAD
+=======
+
+    /**
+     * @return Collection<int, Groups>
+     */
+    public function getGroupid(): Collection
+    {
+        return $this->groupid;
+    }
+
+    public function addGroupid(Groups $groupid): static
+    {
+        if (!$this->groupid->contains($groupid)) {
+            $this->groupid->add($groupid);
+            $groupid->addUserid($this);
+        }
+
+        return $this;
+    }
+
+    public function removeGroupid(Groups $groupid): static
+    {
+        if ($this->groupid->removeElement($groupid)) {
+            $groupid->removeUserid($this);
+        }
+
+        return $this;
+    }
+
+>>>>>>> yoser
 }

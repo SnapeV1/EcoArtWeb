@@ -17,7 +17,12 @@ return [
         '/index' => [[['_route' => 'app_group', '_controller' => 'App\\Controller\\GroupController::index'], null, null, null, false, false, null]],
         '/getAll' => [[['_route' => 'groups_getall', '_controller' => 'App\\Controller\\GroupController::getAll'], null, null, null, false, false, null]],
         '/add' => [[['_route' => 'addgroup', '_controller' => 'App\\Controller\\GroupController::addGroup'], null, null, null, false, false, null]],
+<<<<<<< HEAD
         '/membre' => [[['_route' => 'app_membre', '_controller' => 'App\\Controller\\MembreController::index'], null, null, null, false, false, null]],
+=======
+        '/product' => [[['_route' => 'app_product', '_controller' => 'App\\Controller\\ProductController::index'], null, null, null, false, false, null]],
+        '/addProduct' => [[['_route' => 'add_product', '_controller' => 'App\\Controller\\ProductController::addProduct'], null, null, null, false, false, null]],
+>>>>>>> yoser
     ],
     [ // $regexpList
         0 => '{^(?'

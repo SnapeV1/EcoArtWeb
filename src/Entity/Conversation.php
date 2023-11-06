@@ -2,7 +2,11 @@
 
 namespace App\Entity;
 
+<<<<<<< HEAD
 use DateTime;
+=======
+use Doctrine\DBAL\Types\Types;
+>>>>>>> yoser
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -61,6 +65,52 @@ class Conversation
      * })
      */
     private ?int $iduser1;
+
+    public function getIdconv(): ?int
+    {
+        return $this->idconv;
+    }
+
+    public function getDateMsg(): ?\DateTimeInterface
+    {
+        return $this->dateMsg;
+    }
+
+    public function getMsg(): ?string
+    {
+        return $this->msg;
+    }
+
+    public function setMsg(?string $msg): static
+    {
+        $this->msg = $msg;
+
+        return $this;
+    }
+
+    public function getIduser2(): ?Utilisateur
+    {
+        return $this->iduser2;
+    }
+
+    public function setIduser2(?Utilisateur $iduser2): static
+    {
+        $this->iduser2 = $iduser2;
+
+        return $this;
+    }
+
+    public function getIduser1(): ?Utilisateur
+    {
+        return $this->iduser1;
+    }
+
+    public function setIduser1(?Utilisateur $iduser1): static
+    {
+        $this->iduser1 = $iduser1;
+
+        return $this;
+    }
 
 
 }

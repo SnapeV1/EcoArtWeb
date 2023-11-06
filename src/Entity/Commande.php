@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use DateTime;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,65 +12,130 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="commande")
  * @ORM\Entity
  */
+#[ORM\Entity(repositoryClass:CommandeRepository::class)]
 class Commande
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_c", type="bigint", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idC;
+    
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ? int $idC=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nomC", type="string", length=50, nullable=false)
-     */
-    private $nomc;
+    
+    #[ORM\Column(length:50)]
+    private ? string $nomc=null;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_client", type="bigint", nullable=false)
-     */
-    private $idClient;
+   
+    #[ORM\Column]
+    private ?int $idClient=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="adresse", type="string", length=50, nullable=false)
-     */
-    private $adresse;
+   
+    #[ORM\Column(length:50)]
+    private ?string $adresse=null;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="date", nullable=false)
-     */
-    private $date;
+   
+    #[ORM\Column]
+    private ? \DateTime $date=null ;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="numTel", type="integer", nullable=false)
-     */
-    private $numtel;
+    
+    #[ORM\Column]
+    private ?int $numtel=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=50, nullable=false)
-     */
-    private $email;
+    #[ORM\Column(length:50)]
+    private ? string $email=null;
 
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="total", type="float", precision=10, scale=0, nullable=false)
-     */
-    private $total;
+   
+    #[ORM\Column(length:50)]
+    private ? float $total=null;
+
+    public function getIdC(): ?string
+    {
+        return $this->idC;
+    }
+
+    public function getNomc(): ?string
+    {
+        return $this->nomc;
+    }
+
+    public function setNomc(string $nomc): static
+    {
+        $this->nomc = $nomc;
+
+        return $this;
+    }
+
+    public function getIdClient(): ?string
+    {
+        return $this->idClient;
+    }
+
+    public function setIdClient(string $idClient): static
+    {
+        $this->idClient = $idClient;
+
+        return $this;
+    }
+
+    public function getAdresse(): ?string
+    {
+        return $this->adresse;
+    }
+
+    public function setAdresse(string $adresse): static
+    {
+        $this->adresse = $adresse;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): static
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getNumtel(): ?int
+    {
+        return $this->numtel;
+    }
+
+    public function setNumtel(int $numtel): static
+    {
+        $this->numtel = $numtel;
+
+        return $this;
+    }
+
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    public function setEmail(string $email): static
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    public function getTotal(): ?float
+    {
+        return $this->total;
+    }
+
+    public function setTotal(float $total): static
+    {
+        $this->total = $total;
+
+        return $this;
+    }
 
 
 }

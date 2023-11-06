@@ -1,0 +1,36 @@
+<?php //App%255CEntity%255CTempmail%2524id
+
+return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
+    $o = [
+        clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Id'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Id')),
+        clone ($p['Doctrine\\ORM\\Mapping\\GeneratedValue'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\GeneratedValue')),
+        clone ($p['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'name' => [
+<<<<<<< HEAD:var/cache/dev/pools/system/bgNd6jM-Js/V/X/D6xnmynOyma0asF74fAg
+                2 => 'Gid',
+=======
+                'id',
+>>>>>>> yoser:var/cache/dev/pools/system/kZuFKYJATG/Z/L/DPi6K4KIIZGUNMJex19w
+            ],
+            'type' => [
+                2 => 'integer',
+            ],
+            'precision' => [
+                2 => null,
+            ],
+            'scale' => [
+                2 => null,
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+        $o[2],
+    ],
+    []
+); }];

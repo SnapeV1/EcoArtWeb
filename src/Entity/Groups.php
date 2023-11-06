@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 
@@ -49,6 +51,38 @@ class Groups
     {
         $this->userid = new \Doctrine\Common\Collections\ArrayCollection();
     }
+<<<<<<< HEAD
+=======
+    public function getId(): ?int
+    {
+        return $this->gid;
+    }
+
+    public function getnom(): ?String
+    {
+        return $this->nom;
+    }
+    public function getsize(): ?int
+    {
+        return $this->size;
+    }
+    public function getlogo(): ?String
+    {
+        return $this->logo;
+    }
+
+
+    public function setId(?int $id): void
+    {
+        $this->gid = $id;
+    }
+
+    public function setNom(?string $nom): void
+    {
+        $this->nom = $nom;
+    }
+
+>>>>>>> yoser
    
         public function getid() {
             return $this->id;
@@ -91,3 +125,41 @@ class Groups
     
 
 
+<<<<<<< HEAD
+=======
+    public function setLogo(?string $logo): void
+    {
+        $this->logo = $logo;
+    }
+
+    public function getGid(): ?int
+    {
+        return $this->gid;
+    }
+
+    /**
+     * @return Collection<int, Utilisateur>
+     */
+    public function getUserid(): Collection
+    {
+        return $this->userid;
+    }
+
+    public function addUserid(Utilisateur $userid): static
+    {
+        if (!$this->userid->contains($userid)) {
+            $this->userid->add($userid);
+        }
+
+        return $this;
+    }
+
+    public function removeUserid(Utilisateur $userid): static
+    {
+        $this->userid->removeElement($userid);
+
+        return $this;
+    }
+
+}
+>>>>>>> yoser

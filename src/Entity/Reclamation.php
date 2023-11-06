@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -48,6 +49,59 @@ class Reclamation
      * @ORM\Column(name="senderid", type="bigint", nullable=false)
      */
     private $senderid;
+
+    public function getId(): ?string
+    {
+        return $this->id;
+    }
+
+    public function getContenu(): ?string
+    {
+        return $this->contenu;
+    }
+
+    public function setContenu(string $contenu): static
+    {
+        $this->contenu = $contenu;
+
+        return $this;
+    }
+
+    public function getEtat(): ?string
+    {
+        return $this->etat;
+    }
+
+    public function setEtat(string $etat): static
+    {
+        $this->etat = $etat;
+
+        return $this;
+    }
+
+    public function getReponse(): ?string
+    {
+        return $this->reponse;
+    }
+
+    public function setReponse(?string $reponse): static
+    {
+        $this->reponse = $reponse;
+
+        return $this;
+    }
+
+    public function getSenderid(): ?string
+    {
+        return $this->senderid;
+    }
+
+    public function setSenderid(string $senderid): static
+    {
+        $this->senderid = $senderid;
+
+        return $this;
+    }
 
 
 }
