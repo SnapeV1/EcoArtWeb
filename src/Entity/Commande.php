@@ -2,10 +2,7 @@
 
 namespace App\Entity;
 
-<<<<<<< HEAD
 use DateTime;
-=======
->>>>>>> origin/ons
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -139,95 +136,5 @@ class Commande
 
         return $this;
     }
-
-    public function getIdC(): ?string
-    {
-        return $this->idC;
-    }
-
-    public function getNomc(): ?string
-    {
-        return $this->nomc;
-    }
-
-    public function setNomc(string $nomc): static
-    {
-        $this->nomc = $nomc;
-
-        return $this;
-    }
-
-    public function getIdClient(): ?string
-    {
-        return $this->idClient;
-    }
-
-    public function setIdClient(string $idClient): static
-    {
-        $this->idClient = $idClient;
-
-        return $this;
-    }
-
-    public function getAdresse(): ?string
-    {
-        return $this->adresse;
-    }
-
-    public function setAdresse(string $adresse): static
-    {
-        $this->adresse = $adresse;
-
-        return $this;
-    }
-
-    public function getDate(): ?\DateTimeInterface
-    {
-        return $this->date;
-    }
-
-    public function setDate(\DateTimeInterface $date): static
-    {
-        $this->date = $date;
-
-        return $this;
-    }
-
-    public function getNumtel(): ?int
-    {
-        return $this->numtel;
-    }
-
-    public function setNumtel(int $numtel): static
-    {
-        $this->numtel = $numtel;
-
-        return $this;
-    }
-
-    public function getEmail(): ?string
-    {
-        return $this->email;
-    }
-
-    public function setEmail(string $email): static
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    public function getTotal(): ?float
-    {
-        return $this->total;
-    }
-
-    public function setTotal(float $total): static
-    {
-        $this->total = $total;
-
-        return $this;
-    }
-
 
 }
