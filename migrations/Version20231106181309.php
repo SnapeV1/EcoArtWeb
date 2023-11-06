@@ -1,0 +1,44 @@
+<?php
+
+declare(strict_types=1);
+
+namespace DoctrineMigrations;
+
+use Doctrine\DBAL\Schema\Schema;
+use Doctrine\Migrations\AbstractMigration;
+
+/**
+ * Auto-generated Migration: Please modify to your needs!
+ */
+final class Version20231106181309 extends AbstractMigration
+{
+    public function getDescription(): string
+    {
+        return '';
+    }
+
+    public function up(Schema $schema): void
+    {
+        // this up() migration is auto-generated, please modify it to your needs
+        $this->addSql('CREATE TABLE groups (Gid INT AUTO_INCREMENT NOT NULL, nom VARCHAR(255) NOT NULL, size INT NOT NULL, logo VARCHAR(255) NOT NULL, PRIMARY KEY(Gid)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE membre (id INT AUTO_INCREMENT NOT NULL, Role VARCHAR(50) NOT NULL, GroupID INT DEFAULT NULL, UserID INT DEFAULT NULL, INDEX IDX_F6B4FB29195291E4 (GroupID), INDEX IDX_F6B4FB2958746832 (UserID), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE membre ADD CONSTRAINT FK_F6B4FB29195291E4 FOREIGN KEY (GroupID) REFERENCES groups (gid)');
+        $this->addSql('ALTER TABLE membre ADD CONSTRAINT FK_F6B4FB2958746832 FOREIGN KEY (UserID) REFERENCES utilisateur (id)');
+        $this->addSql('ALTER TABLE conversation MODIFY idconv INT NOT NULL');
+        $this->addSql('DROP INDEX `primary` ON conversation');
+        $this->addSql('ALTER TABLE conversation CHANGE idconv idconv INT NOT NULL');
+        $this->addSql('ALTER TABLE conversation ADD PRIMARY KEY (idconv, Date_MSG, idUser2, idUser1)');
+    }
+
+    public function down(Schema $schema): void
+    {
+        // this down() migration is auto-generated, please modify it to your needs
+        $this->addSql('ALTER TABLE membre DROP FOREIGN KEY FK_F6B4FB29195291E4');
+        $this->addSql('ALTER TABLE membre DROP FOREIGN KEY FK_F6B4FB2958746832');
+        $this->addSql('DROP TABLE groups');
+        $this->addSql('DROP TABLE membre');
+        $this->addSql('DROP INDEX `PRIMARY` ON conversation');
+        $this->addSql('ALTER TABLE conversation CHANGE idconv idconv INT AUTO_INCREMENT NOT NULL');
+        $this->addSql('ALTER TABLE conversation ADD PRIMARY KEY (idconv, idUser1, idUser2, Date_MSG)');
+    }
+}

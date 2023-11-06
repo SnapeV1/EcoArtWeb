@@ -4,85 +4,90 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Groups
- *
+
+
+ 
+#[ORM\Entity(repositoryClass: GroupRepository::class)]
+
+
+ /**
  * @ORM\Table(name="groups")
  * @ORM\Entity
  */
 class Groups
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="Gid", type="integer", nullable=false)
+     /**
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer", name="id")
      */
-    private $Gid;
+    private ?int $id = null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom", type="string", length=255, nullable=false)
+ 
+
+   /**
+     * @ORM\Column(type="string")
      */
-    private $nom;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="size", type="integer", nullable=false)
-     */
-    private $size = '0';
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="logo", type="string", length=255, nullable=false)
-     */
-    private $logo;
-
-
-
-    public function getId(): ?int
-    {
-        return $this->Gid;
-    }
-
-    public function getnom(): ?String
-    {
-        return $this->nom;
-    }
-    public function getsize(): ?int
-    {
-        return $this->size;
-    }
-    public function getlogo(): ?String
-    {
-        return $this->logo;
-    }
-
-
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
-    }
-
-    public function setNom(?string $nom): void
-    {
-        $this->nom = $nom;
-    }
+    private ?String $nom;
 
    
-    public function setSize(?int $size): void
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private ?int $size=0;
+    /**
+     * @ORM\Column(type="string")
+     */
+    private ?String $logo;
+
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
     {
-        $this->size = $size;
+        $this->userid = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
-
-    public function setLogo(?string $logo): void
-    {
-        $this->logo = $logo;
+   
+        public function getid() {
+            return $this->id;
+        }
+    
+        public function getNom() {
+            return $this->nom;
+        }
+    
+        public function getSize() {
+            return $this->size;
+        }
+    
+        public function getLogo() {
+            return $this->logo;
+        }
+    
+       
+        // Setters
+        public function setGid($id) {
+            $this->id = $id;
+        }
+    
+        public function setNom($nom) {
+            $this->nom = $nom;
+        }
+    
+        public function setSize($size) {
+            $this->size = $size;
+        }
+    
+        public function setLogo($logo) {
+            $this->logo = $logo;
+        }
+    
+      
+        
+     
     }
+    
 
-}
+
