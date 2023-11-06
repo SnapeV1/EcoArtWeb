@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Entity;
+use App\Entity\Commande;
 
 use Doctrine\ORM\Mapping as ORM;
+use PHPUnit\TextUI\Command;
 
 /**
  * Lineorder
@@ -10,47 +12,30 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="lineorder", indexes={@ORM\Index(name="fk_idC", columns={"id_c"})})
  * @ORM\Entity
  */
+#[ORM\Entity(repositoryClass:LineorderRepository::class)]
 class Lineorder
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_o", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idO;
+   
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $idO= null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="productName", type="string", length=50, nullable=false)
-     */
-    private $productname;
+  
+    #[ORM\Column(length:50)]
+    private ?string $productname=null;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="quantite", type="integer", nullable=false)
-     */
-    private $quantite;
+  
+    #[ORM\Column]
+    private ? int $quantite=null;
 
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="prix", type="float", precision=10, scale=0, nullable=false)
-     */
-    private $prix;
+  
+    #[ORM\Column]
+    private ?float $prix=null;
 
-    /**
-     * @var \Commande
-     *
-     * @ORM\ManyToOne(targetEntity="Commande")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_c", referencedColumnName="id_c")
-     * })
-     */
-    private $idC;
+    
+    #[ORM\ManyToOne(inversedBy:'Lineorder')]
+    private ?Command $idC=null;
 
     public function getIdO(): ?int
     {

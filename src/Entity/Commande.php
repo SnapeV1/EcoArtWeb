@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -11,65 +12,41 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="commande")
  * @ORM\Entity
  */
+#[ORM\Entity(repositoryClass:CommandeRepository::class)]
 class Commande
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_c", type="bigint", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idC;
+    
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ? int $idC=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nomC", type="string", length=50, nullable=false)
-     */
-    private $nomc;
+    
+    #[ORM\Column(length:50)]
+    private ? string $nomc=null;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id_client", type="bigint", nullable=false)
-     */
-    private $idClient;
+   
+    #[ORM\Column]
+    private ?int $idClient=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="adresse", type="string", length=50, nullable=false)
-     */
-    private $adresse;
+   
+    #[ORM\Column(length:50)]
+    private ?string $adresse=null;
 
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="date", type="date", nullable=false)
-     */
-    private $date;
+   
+    #[ORM\Column]
+    private ? \DateTime $date=null ;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="numTel", type="integer", nullable=false)
-     */
-    private $numtel;
+    
+    #[ORM\Column]
+    private ?int $numtel=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email", type="string", length=50, nullable=false)
-     */
-    private $email;
+    #[ORM\Column(length:50)]
+    private ? string $email=null;
 
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="total", type="float", precision=10, scale=0, nullable=false)
-     */
-    private $total;
+   
+    #[ORM\Column(length:50)]
+    private ? float $total=null;
 
     public function getIdC(): ?string
     {

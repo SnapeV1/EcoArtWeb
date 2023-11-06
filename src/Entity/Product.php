@@ -2,74 +2,49 @@
 
 namespace App\Entity;
 
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Product
- *
+ *_
  * @ORM\Table(name="product")
  * @ORM\Entity
  */
+#[ORM\Entity(repositoryClass:ProductRepository::class)]
 class Product
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="idPdts", type="bigint", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $idpdts;
+  
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom", type="string", length=50, nullable=false)
-     */
-    private $nom;
+    private ? int $idpdts=null;
 
-    /**
-     * @var float
-     *
-     * @ORM\Column(name="prix", type="float", precision=10, scale=0, nullable=false)
-     */
-    private $prix;
+   
+    #[ORM\Column(length:50)]
+    private ? string $nom=null;
+    
+    #[ORM\Column]
+    private ?float $prix=null;
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="qte", type="integer", nullable=false)
-     */
-    private $qte;
+   
+    #[ORM\Column]
+    private ?int $qte=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="categ", type="string", length=50, nullable=false)
-     */
-    private $categ;
+    #[ORM\Column(length:50)]
+    private ?String $categ=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="matiere", type="string", length=50, nullable=false)
-     */
-    private $matiere;
+    
+    #[ORM\Column(length:50)]
+    private ? string $matiere=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="description", type="string", length=350, nullable=false)
-     */
-    private $description;
+   
+    #[ORM\Column(length:350)]
+    private ?string $description=null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="image", type="string", length=1000, nullable=false)
-     */
-    private $image;
+    
+    #[ORM\Column(length:1000)]
+    private ?string $image=null;
 
 
     public function getIdpdts(): ?int
