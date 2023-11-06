@@ -18,11 +18,19 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Groups
 {
+<<<<<<< HEAD
      /**
+=======
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+>>>>>>> origin/ons
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer", name="id")
      */
+<<<<<<< HEAD
     private ?int $id = null;
 
  
@@ -31,10 +39,33 @@ class Groups
      * @ORM\Column(type="string")
      */
     private ?String $nom;
+=======
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom", type="string", length=255, nullable=false)
+     */
+    private $nom;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="size", type="integer", nullable=false)
+     */
+    private $size;
+>>>>>>> origin/ons
 
    
     /**
+<<<<<<< HEAD
      * @ORM\Column(type="integer")
+=======
+     * @var string
+     *
+     * @ORM\Column(name="logo", type="string", length=255, nullable=false)
+>>>>>>> origin/ons
      */
     private ?int $size=0;
     /**
@@ -43,6 +74,7 @@ class Groups
     private ?String $logo;
 
 
+<<<<<<< HEAD
 
     /**
      * Constructor
@@ -53,24 +85,43 @@ class Groups
     }
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/ons
     public function getId(): ?int
     {
-        return $this->gid;
+        return $this->id;
     }
 
-    public function getnom(): ?String
+    public function getNom(): ?string
     {
         return $this->nom;
     }
-    public function getsize(): ?int
+
+    public function setNom(string $nom): static
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getSize(): ?int
     {
         return $this->size;
     }
-    public function getlogo(): ?String
+
+    public function setSize(int $size): static
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
+    public function getLogo(): ?string
     {
         return $this->logo;
     }
 
+<<<<<<< HEAD
 
     public function setId(?int $id): void
     {
@@ -128,10 +179,16 @@ class Groups
 <<<<<<< HEAD
 =======
     public function setLogo(?string $logo): void
+=======
+    public function setLogo(string $logo): static
+>>>>>>> origin/ons
     {
         $this->logo = $logo;
+
+        return $this;
     }
 
+<<<<<<< HEAD
     public function getGid(): ?int
     {
         return $this->gid;
@@ -160,6 +217,8 @@ class Groups
 
         return $this;
     }
+=======
+>>>>>>> origin/ons
 
 }
 >>>>>>> yoser

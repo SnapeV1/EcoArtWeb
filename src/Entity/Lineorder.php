@@ -90,5 +90,58 @@ class Lineorder
         return $this;
     }
 
+    public function getIdO(): ?int
+    {
+        return $this->idO;
+    }
+
+    public function getProductname(): ?string
+    {
+        return $this->productname;
+    }
+
+    public function setProductname(string $productname): static
+    {
+        $this->productname = $productname;
+
+        return $this;
+    }
+
+    public function getQuantite(): ?int
+    {
+        return $this->quantite;
+    }
+
+    public function setQuantite(int $quantite): static
+    {
+        $this->quantite = $quantite;
+
+        return $this;
+    }
+
+    public function getPrix(): ?float
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(float $prix): static
+    {
+        $this->prix = $prix;
+
+        return $this;
+    }
+
+    public function getIdC(): ?Commande
+    {
+        return $this->idC;
+    }
+
+    public function setIdC(?Commande $idC): static
+    {
+        $this->idC = $idC;
+
+        return $this;
+    }
+
 
 }

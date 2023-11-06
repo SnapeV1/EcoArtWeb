@@ -113,23 +113,33 @@ class Utilisateur
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/ons
     public function getId(): ?int
     {
         return $this->id;
     }
 
+<<<<<<< HEAD
 >>>>>>> yoser
+=======
+>>>>>>> origin/ons
     public function getNom(): ?string
     {
         return $this->nom;
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function setNom(?string $nom): self
 =======
     public function setNom(string $nom): static
 >>>>>>> yoser
+=======
+    public function setNom(string $nom): static
+>>>>>>> origin/ons
     {
         $this->nom = $nom;
 
@@ -142,10 +152,14 @@ class Utilisateur
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function setPrenom(?string $prenom): self
 =======
     public function setPrenom(string $prenom): static
 >>>>>>> yoser
+=======
+    public function setPrenom(string $prenom): static
+>>>>>>> origin/ons
     {
         $this->prenom = $prenom;
 
@@ -158,10 +172,14 @@ class Utilisateur
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function setDateNaissance(?string $dateNaissance): self
 =======
     public function setDateNaissance(string $dateNaissance): static
 >>>>>>> yoser
+=======
+    public function setDateNaissance(string $dateNaissance): static
+>>>>>>> origin/ons
     {
         $this->dateNaissance = $dateNaissance;
 
@@ -174,10 +192,14 @@ class Utilisateur
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function setCin(?string $cin): self
 =======
     public function setCin(string $cin): static
 >>>>>>> yoser
+=======
+    public function setCin(string $cin): static
+>>>>>>> origin/ons
     {
         $this->cin = $cin;
 
@@ -190,10 +212,14 @@ class Utilisateur
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function setAge(?int $age): self
 =======
     public function setAge(int $age): static
 >>>>>>> yoser
+=======
+    public function setAge(int $age): static
+>>>>>>> origin/ons
     {
         $this->age = $age;
 
@@ -206,10 +232,14 @@ class Utilisateur
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function setPic(?string $pic): self
 =======
     public function setPic(string $pic): static
 >>>>>>> yoser
+=======
+    public function setPic(string $pic): static
+>>>>>>> origin/ons
     {
         $this->pic = $pic;
 
@@ -222,10 +252,14 @@ class Utilisateur
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function setUsername(?string $username): self
 =======
     public function setUsername(string $username): static
 >>>>>>> yoser
+=======
+    public function setUsername(string $username): static
+>>>>>>> origin/ons
     {
         $this->username = $username;
 
@@ -238,10 +272,14 @@ class Utilisateur
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function setPassword(?string $password): self
 =======
     public function setPassword(string $password): static
 >>>>>>> yoser
+=======
+    public function setPassword(string $password): static
+>>>>>>> origin/ons
     {
         $this->password = $password;
 
@@ -254,10 +292,14 @@ class Utilisateur
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function setEmail(?string $email): self
 =======
     public function setEmail(string $email): static
 >>>>>>> yoser
+=======
+    public function setEmail(string $email): static
+>>>>>>> origin/ons
     {
         $this->email = $email;
 
@@ -270,17 +312,24 @@ class Utilisateur
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function setType(?string $type): self
 =======
     public function setType(string $type): static
 >>>>>>> yoser
+=======
+    public function setType(string $type): static
+>>>>>>> origin/ons
     {
         $this->type = $type;
 
         return $this;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/ons
 
     /**
      * @return Collection<int, Groups>
@@ -309,5 +358,8 @@ class Utilisateur
         return $this;
     }
 
+<<<<<<< HEAD
 >>>>>>> yoser
+=======
+>>>>>>> origin/ons
 }
