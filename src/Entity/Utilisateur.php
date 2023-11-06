@@ -2,27 +2,25 @@
 
 namespace App\Entity;
 
+<<<<<<< HEAD
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+=======
+use Doctrine\DBAL\Types\Types;
+>>>>>>> origin/firas
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\UtilisateurRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 
-/**
- * Utilisateur
- *
- * @ORM\Table(name="utilisateur")
- * @ORM\Entity
- */
+#[ORM\Entity(repositoryClass: UtilisateurRepository::class)]
 class Utilisateur
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id=null;
 
+<<<<<<< HEAD
     /**
      * @var string
      *
@@ -43,14 +41,26 @@ class Utilisateur
      * @ORM\Column(name="date_naissance", type="string", length=10, nullable=false)
      */
     private ?String $dateNaissance;
+=======
+    #[Assert\NotBlank(message:"Name can't be empty")]
+    #[ORM\Column(length:30)]
+    private ?string $nom= null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="CIN", type="string", length=10, nullable=false)
-     */
-    private $cin;
+    #[Assert\NotBlank(message:"Lastname can't be empty")]
+    #[ORM\Column(length:30)]
+    private ?string $prenom=null;
 
+    #[Assert\NotBlank(message:"Birthdate can't be empty")]
+    #[Assert\Date(message:"Invalid date")]
+    #[ORM\Column(length:30)]
+    private $dateNaissance=null;
+>>>>>>> origin/firas
+
+    #[Assert\Length(min:8 , minMessage:"Cin too short")]
+    #[ORM\Column(length:10)]
+    private ?string $cin=null;
+
+<<<<<<< HEAD
     /**
      * @var int
      *
@@ -104,14 +114,37 @@ class Utilisateur
      * Constructor
      */
     public function __construct()
+=======
+    #[ORM\Column]
+    private ?int $age=null;
+
+    #[ORM\Column(length:200)]
+    private ?string $pic=null;
+
+    #[ORM\Column(length:20)]
+    private ?string $username=null;
+    #[Assert\NotBlank(message:"Password can't be null")]
+    #[ORM\Column(length:40)]
+    private ?string $password=null;
+    #[Assert\NotBlank(message:"Email can't be empty")]
+    #[Assert\Email(message:"Invalid Email")]
+    #[ORM\Column(length:100)]
+    private ?string $email=null;
+
+    #[ORM\Column(length:15)]
+    private ?string $type;
+
+    public function getId(): ?string
+>>>>>>> origin/firas
     {
-        $this->groupid = new \Doctrine\Common\Collections\ArrayCollection();
+        return $this->id;
     }
     public function getId(): ?int
     {
         return $this->id;
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -126,11 +159,14 @@ class Utilisateur
 >>>>>>> yoser
 =======
 >>>>>>> origin/ons
+=======
+>>>>>>> origin/firas
     public function getNom(): ?string
     {
         return $this->nom;
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
     public function setNom(?string $nom): self
@@ -140,6 +176,9 @@ class Utilisateur
 =======
     public function setNom(string $nom): static
 >>>>>>> origin/ons
+=======
+    public function setNom(string $nom): static
+>>>>>>> origin/firas
     {
         $this->nom = $nom;
 
@@ -153,6 +192,7 @@ class Utilisateur
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function setPrenom(?string $prenom): self
 =======
     public function setPrenom(string $prenom): static
@@ -160,6 +200,9 @@ class Utilisateur
 =======
     public function setPrenom(string $prenom): static
 >>>>>>> origin/ons
+=======
+    public function setPrenom(string $prenom): static
+>>>>>>> origin/firas
     {
         $this->prenom = $prenom;
 
@@ -173,6 +216,7 @@ class Utilisateur
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function setDateNaissance(?string $dateNaissance): self
 =======
     public function setDateNaissance(string $dateNaissance): static
@@ -180,6 +224,9 @@ class Utilisateur
 =======
     public function setDateNaissance(string $dateNaissance): static
 >>>>>>> origin/ons
+=======
+    public function setDateNaissance(string $dateNaissance): static
+>>>>>>> origin/firas
     {
         $this->dateNaissance = $dateNaissance;
 
@@ -193,6 +240,7 @@ class Utilisateur
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function setCin(?string $cin): self
 =======
     public function setCin(string $cin): static
@@ -200,6 +248,9 @@ class Utilisateur
 =======
     public function setCin(string $cin): static
 >>>>>>> origin/ons
+=======
+    public function setCin(string $cin): static
+>>>>>>> origin/firas
     {
         $this->cin = $cin;
 
@@ -213,6 +264,7 @@ class Utilisateur
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function setAge(?int $age): self
 =======
     public function setAge(int $age): static
@@ -220,6 +272,9 @@ class Utilisateur
 =======
     public function setAge(int $age): static
 >>>>>>> origin/ons
+=======
+    public function setAge(int $age): static
+>>>>>>> origin/firas
     {
         $this->age = $age;
 
@@ -233,6 +288,7 @@ class Utilisateur
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function setPic(?string $pic): self
 =======
     public function setPic(string $pic): static
@@ -240,6 +296,9 @@ class Utilisateur
 =======
     public function setPic(string $pic): static
 >>>>>>> origin/ons
+=======
+    public function setPic(string $pic): static
+>>>>>>> origin/firas
     {
         $this->pic = $pic;
 
@@ -253,6 +312,7 @@ class Utilisateur
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function setUsername(?string $username): self
 =======
     public function setUsername(string $username): static
@@ -260,6 +320,9 @@ class Utilisateur
 =======
     public function setUsername(string $username): static
 >>>>>>> origin/ons
+=======
+    public function setUsername(string $username): static
+>>>>>>> origin/firas
     {
         $this->username = $username;
 
@@ -273,6 +336,7 @@ class Utilisateur
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function setPassword(?string $password): self
 =======
     public function setPassword(string $password): static
@@ -280,6 +344,9 @@ class Utilisateur
 =======
     public function setPassword(string $password): static
 >>>>>>> origin/ons
+=======
+    public function setPassword(string $password): static
+>>>>>>> origin/firas
     {
         $this->password = $password;
 
@@ -293,6 +360,7 @@ class Utilisateur
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function setEmail(?string $email): self
 =======
     public function setEmail(string $email): static
@@ -300,6 +368,9 @@ class Utilisateur
 =======
     public function setEmail(string $email): static
 >>>>>>> origin/ons
+=======
+    public function setEmail(string $email): static
+>>>>>>> origin/firas
     {
         $this->email = $email;
 
@@ -313,6 +384,7 @@ class Utilisateur
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     public function setType(?string $type): self
 =======
     public function setType(string $type): static
@@ -320,11 +392,15 @@ class Utilisateur
 =======
     public function setType(string $type): static
 >>>>>>> origin/ons
+=======
+    public function setType(string $type): static
+>>>>>>> origin/firas
     {
         $this->type = $type;
 
         return $this;
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -362,4 +438,8 @@ class Utilisateur
 >>>>>>> yoser
 =======
 >>>>>>> origin/ons
+=======
+
+
+>>>>>>> origin/firas
 }
