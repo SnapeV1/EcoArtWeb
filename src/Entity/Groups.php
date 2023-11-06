@@ -4,58 +4,43 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * Groups
- *
+
+
+ 
+#[ORM\Entity(repositoryClass: GroupRepository::class)]
+
+
+ /**
  * @ORM\Table(name="groups")
  * @ORM\Entity
  */
 class Groups
 {
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="Gid", type="integer", nullable=false)
+     /**
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer", name="id")
      */
-    private $gid;
+    private ?int $id = null;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="nom", type="string", length=20, nullable=false)
-     */
-    private $nom;
+ 
 
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="Size", type="integer", nullable=false)
+   /**
+     * @ORM\Column(type="string")
      */
-    private $size=0;
+    private ?String $nom;
 
+   
     /**
-     * @var string
-     *
-     * @ORM\Column(name="logo", type="string", length=500, nullable=false)
+     * @ORM\Column(type="integer")
      */
-    private $logo;
+    private ?int $size=0;
+    /**
+     * @ORM\Column(type="string")
+     */
+    private ?String $logo;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Utilisateur", inversedBy="groupid")
-     * @ORM\JoinTable(name="membre",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="GroupID", referencedColumnName="Gid")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="UserID", referencedColumnName="id")
-     *   }
-     * )
-     */
-    private $userid = array();
+
 
     /**
      * Constructor
@@ -64,45 +49,45 @@ class Groups
     {
         $this->userid = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    public function getId(): ?int
-    {
-        return $this->gid;
-    }
-
-    public function getnom(): ?String
-    {
-        return $this->nom;
-    }
-    public function getsize(): ?int
-    {
-        return $this->size;
-    }
-    public function getlogo(): ?String
-    {
-        return $this->logo;
-    }
-
-
-    public function setId(?int $id): void
-    {
-        $this->id = $id;
-    }
-
-    public function setNom(?string $nom): void
-    {
-        $this->nom = $nom;
-    }
-
    
-    public function setSize(?int $size): void
-    {
-        $this->size = $size;
+        public function getid() {
+            return $this->id;
+        }
+    
+        public function getNom() {
+            return $this->nom;
+        }
+    
+        public function getSize() {
+            return $this->size;
+        }
+    
+        public function getLogo() {
+            return $this->logo;
+        }
+    
+       
+        // Setters
+        public function setGid($id) {
+            $this->id = $id;
+        }
+    
+        public function setNom($nom) {
+            $this->nom = $nom;
+        }
+    
+        public function setSize($size) {
+            $this->size = $size;
+        }
+    
+        public function setLogo($logo) {
+            $this->logo = $logo;
+        }
+    
+      
+        
+     
     }
+    
 
 
-    public function setLogo(?string $logo): void
-    {
-        $this->logo = $logo;
-    }
-
-}

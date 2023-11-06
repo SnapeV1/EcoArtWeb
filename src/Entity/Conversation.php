@@ -2,43 +2,44 @@
 
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Conversation
  *
- * @ORM\Table(name="conversation", indexes={@ORM\Index(name="idUser2", columns={"idUser2"}), @ORM\Index(name="idUser1", columns={"idUser1"})})
+ * @ORM\Table(name="conversation", indexes={@ORM\Index(name="idUser1", columns={"idUser1"}), @ORM\Index(name="idUser2", columns={"idUser2"})})
  * @ORM\Entity
  */
 class Conversation
 {
     /**
-     * @var int
+     *
      *
      * @ORM\Column(name="idconv", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue
      */
-    private $idconv;
-
+    private ?int $idconv=null;
+  
     /**
-     * @var \DateTime
+     * 
      *
      * @ORM\Column(name="Date_MSG", type="datetime", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    private $dateMsg;
+    private ?DateTime $dateMsg;
 
     /**
-     * @var string|null
+     * 
      *
      * @ORM\Column(name="Msg", type="text", length=65535, nullable=true)
      */
-    private $msg;
+    private ?String $msg;
 
     /**
-     * @var \Utilisateur
+     *
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
@@ -47,10 +48,10 @@ class Conversation
      *   @ORM\JoinColumn(name="idUser2", referencedColumnName="id")
      * })
      */
-    private $iduser2;
+    private ?int $iduser2;
 
     /**
-     * @var \Utilisateur
+     * 
      *
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
@@ -59,7 +60,7 @@ class Conversation
      *   @ORM\JoinColumn(name="idUser1", referencedColumnName="id")
      * })
      */
-    private $iduser1;
+    private ?int $iduser1;
 
 
 }
