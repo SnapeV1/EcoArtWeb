@@ -45,10 +45,10 @@ class Groups
     /**
      * Constructor
      */
-    public function __construct()
+    /*public function __construct()
     {
         $this->userid = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    }*/
    
         public function getid() {
             return $this->id;
