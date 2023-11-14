@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Select Receiver{% endblock %}
+  
+{% block body %}
+    {{ parent() }}
+    <div style="text-align: center; padding: 20px; background-color: #f5f5f5; border-radius: 10px;">
+        <h1 style="color: #3498db;">Select Receiver</h1>
+        
+        <form id="selectReceiverForm" method="post" action="{{ path('display_conversations', {'user1Id': user1Id, 'user2Id': '__USER2_ID__'}) }}" style="max-width: 400px; margin: 0 auto;">
+
+            <label for="receiverId" style="display: block; margin-bottom: 10px;">Select a User to Send a Message:</label>
+            
+            <select id="receiverId" name="receiverId" style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box;">
+                {% for user in users %}
+                    <option value="{{ user.id }}">{{ user.username }}</option>
+                {% endfor %}
+            </select><br><br>
+
+            <button type="button" onclick="openConversation()" style="background-color: #3498db; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">Open Conversation</button>
+        </form>
+    </div>
+
+    <script>
+        function openConversation() {
+            // Get the selected user ID
+            var selectedUserId = document.getElementById('receiverId').value;
+
+            // Update the form action with the selected user ID
+            var form = document.getElementById('selectReceiverForm');
+            form.action = form.action.replace('__USER2_ID__', selectedUserId);
+
+            // Submit the form
+            form.submit();
+        }
+    </script>
+{% endblock %}

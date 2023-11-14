@@ -269,4 +269,15 @@ class Groups extends \App\Entity\Groups implements \Doctrine\ORM\Proxy\Proxy
         return parent::setLogo($logo);
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    public function updateSize(array $membres): void
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'updateSize', [$membres]);
+
+        parent::updateSize($membres);
+    }
+
 }

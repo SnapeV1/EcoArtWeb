@@ -84,7 +84,11 @@ class Groups
             $this->logo = $logo;
         }
     
-      
+        public function updateSize(array $membres): void
+        {
+            $this->size = count($membres);
+        }
+             
         
      
     }

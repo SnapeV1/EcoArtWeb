@@ -65,7 +65,7 @@ class __TwigTemplate_9f32264fbfccf9113c35ba812702bf65 extends Template
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->enter($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Hello GroupController!";
+        echo "Hello GroupsController!";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
 
@@ -100,18 +100,14 @@ class __TwigTemplate_9f32264fbfccf9113c35ba812702bf65 extends Template
     <ul>
         <li>Your controller at <code><a href=\"";
         // line 16
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("C:/Users/hamad/OneDrive/Desktop/WebProject/WebProjectV2/src/Controller/GroupController.php", 0), "html", null, true);
-        echo "\">src/Controller/GroupController.php</a></code></li>
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("C:/Users/hamad/OneDrive/Desktop/WebProject/WebProjectV2/src/Controller/GroupsController.php", 0), "html", null, true);
+        echo "\">src/Controller/GroupsController.php</a></code></li>
         <li>Your template at <code><a href=\"";
         // line 17
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("C:/Users/hamad/OneDrive/Desktop/WebProject/WebProjectV2/templates/group/index.html.twig", 0), "html", null, true);
-        echo "\">templates/group/index.html.twig</a></code></li>
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\CodeExtension']->getFileLink("C:/Users/hamad/OneDrive/Desktop/WebProject/WebProjectV2/templates/groups/index.html.twig", 0), "html", null, true);
+        echo "\">templates/groups/index.html.twig</a></code></li>
     </ul>
 </div>
-";
-        // line 20
-        $this->displayParentBlock("body", $context, $blocks);
-        echo "
 ";
         
         $__internal_6f47bbe9983af81f1e7450e9a3e3768f->leave($__internal_6f47bbe9983af81f1e7450e9a3e3768f_prof);
@@ -133,14 +129,14 @@ class __TwigTemplate_9f32264fbfccf9113c35ba812702bf65 extends Template
 
     public function getDebugInfo()
     {
-        return array (  113 => 20,  107 => 17,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  107 => 17,  103 => 16,  96 => 12,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Hello GroupController!{% endblock %}
+{% block title %}Hello GroupsController!{% endblock %}
 
 {% block body %}
 <style>
@@ -153,11 +149,10 @@ class __TwigTemplate_9f32264fbfccf9113c35ba812702bf65 extends Template
 
     This friendly message is coming from:
     <ul>
-        <li>Your controller at <code><a href=\"{{ 'C:/Users/hamad/OneDrive/Desktop/WebProject/WebProjectV2/src/Controller/GroupController.php'|file_link(0) }}\">src/Controller/GroupController.php</a></code></li>
-        <li>Your template at <code><a href=\"{{ 'C:/Users/hamad/OneDrive/Desktop/WebProject/WebProjectV2/templates/group/index.html.twig'|file_link(0) }}\">templates/group/index.html.twig</a></code></li>
+        <li>Your controller at <code><a href=\"{{ 'C:/Users/hamad/OneDrive/Desktop/WebProject/WebProjectV2/src/Controller/GroupsController.php'|file_link(0) }}\">src/Controller/GroupsController.php</a></code></li>
+        <li>Your template at <code><a href=\"{{ 'C:/Users/hamad/OneDrive/Desktop/WebProject/WebProjectV2/templates/groups/index.html.twig'|file_link(0) }}\">templates/groups/index.html.twig</a></code></li>
     </ul>
 </div>
-{{parent()}}
 {% endblock %}
 ", "group/index.html.twig", "C:\\Users\\hamad\\OneDrive\\Desktop\\WebProject\\WebProjectV2\\templates\\group\\index.html.twig");
     }

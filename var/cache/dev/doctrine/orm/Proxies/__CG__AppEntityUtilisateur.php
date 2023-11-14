@@ -67,10 +67,10 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'dateNaissance', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'cin', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'age', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'pic', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'username', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'password', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'type'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'dateNaissance', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'cin', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'age', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'pic', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'username', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'password', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'type', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'groupid'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'dateNaissance', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'cin', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'age', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'pic', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'username', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'password', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'type'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'nom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'prenom', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'dateNaissance', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'cin', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'age', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'pic', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'username', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'password', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'email', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'type', '' . "\0" . 'App\\Entity\\Utilisateur' . "\0" . 'groupid'];
     }
 
     /**
@@ -206,7 +206,7 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
     /**
      * {@inheritDoc}
      */
-    public function setNom(?string $nom): \App\Entity\Utilisateur
+    public function setNom(string $nom): static
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setNom', [$nom]);
@@ -228,7 +228,7 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
     /**
      * {@inheritDoc}
      */
-    public function setPrenom(?string $prenom): \App\Entity\Utilisateur
+    public function setPrenom(string $prenom): static
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPrenom', [$prenom]);
@@ -250,7 +250,7 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
     /**
      * {@inheritDoc}
      */
-    public function setDateNaissance(?string $dateNaissance): \App\Entity\Utilisateur
+    public function setDateNaissance(string $dateNaissance): static
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setDateNaissance', [$dateNaissance]);
@@ -272,7 +272,7 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
     /**
      * {@inheritDoc}
      */
-    public function setCin(?string $cin): \App\Entity\Utilisateur
+    public function setCin(string $cin): static
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCin', [$cin]);
@@ -294,7 +294,7 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
     /**
      * {@inheritDoc}
      */
-    public function setAge(?int $age): \App\Entity\Utilisateur
+    public function setAge(int $age): static
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setAge', [$age]);
@@ -316,7 +316,7 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
     /**
      * {@inheritDoc}
      */
-    public function setPic(?string $pic): \App\Entity\Utilisateur
+    public function setPic(string $pic): static
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPic', [$pic]);
@@ -338,7 +338,7 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
     /**
      * {@inheritDoc}
      */
-    public function setUsername(?string $username): \App\Entity\Utilisateur
+    public function setUsername(string $username): static
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setUsername', [$username]);
@@ -360,7 +360,7 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
     /**
      * {@inheritDoc}
      */
-    public function setPassword(?string $password): \App\Entity\Utilisateur
+    public function setPassword(string $password): static
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setPassword', [$password]);
@@ -382,7 +382,7 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
     /**
      * {@inheritDoc}
      */
-    public function setEmail(?string $email): \App\Entity\Utilisateur
+    public function setEmail(string $email): static
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setEmail', [$email]);
@@ -404,12 +404,23 @@ class Utilisateur extends \App\Entity\Utilisateur implements \Doctrine\ORM\Proxy
     /**
      * {@inheritDoc}
      */
-    public function setType(?string $type): \App\Entity\Utilisateur
+    public function setType(string $type): static
     {
 
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'setType', [$type]);
 
         return parent::setType($type);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getGroupid(): \Doctrine\Common\Collections\Collection
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getGroupid', []);
+
+        return parent::getGroupid();
     }
 
 }

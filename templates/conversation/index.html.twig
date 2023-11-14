@@ -1,0 +1,179 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+ 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Conversation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #3498db;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .conversation-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .user1-column,
+        .user2-column {
+            width: 48%; /* Adjust width as needed */
+        }
+
+        .user1-message,
+        .user2-message {
+            box-sizing: border-box;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            position: relative; /* Add relative positioning for absolute delete button */
+        }
+
+        .user1-message {
+            background-color: #DCF8C6;
+        }
+
+        .user2-message {
+            background-color: #C2DFFF;
+        }
+
+        .message-input {
+            width: 100%; /* Full width */
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+.delete-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 3px; /* Smaller border radius */
+    padding: 6px 8px; /* Smaller padding */
+    font-size: 7px; /* Smaller font size */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #2980b9;
+}
+
+
+
+         .send-button {
+            width: calc(100% - 22px); /* Full width minus padding and border */
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block; /* Align with the input */
+        }
+
+        .send-button:hover {
+            background-color: #45a049;
+        }
+
+        .username {
+            font-size: 18px;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+  {{ parent() }}
+    <h1>Conversation</h1>
+   
+    <div class="conversation-container">
+        <div class="user1-column">
+            <div class="username">{{ username1 }}</div>
+            {% for conversation in conversations|sort %}
+                <div class="user1-message">
+                    <button class="delete-button" onclick="window.location='{{ path('delete_message', {'id': conversation.idconv, 'user1Id': app.request.get('user1Id'), 'user2Id': app.request.get('user2Id')}) }}'">Delete</button>
+
+                    <strong>Date:</strong> {{ conversation.dateMsg|date('Y-m-d H:i:s') }}<br>
+                    <strong>Message:</strong> {{ conversation.msg }}<br>
+                </div>
+            {% else %}
+                <p>No conversations found</p>
+            {% endfor %}
+        </div>
+
+        <div class="user2-column">
+            <div class="username">{{ username2 }}</div>      
+            {% for conversation in conversations2|sort %}
+                <div class="user2-message">
+                    <strong>Date:</strong> {{ conversation.dateMsg|date('Y-m-d H:i:s') }}<br>
+                    <strong>Message:</strong> {{ conversation.msg }}<br>
+                </div>
+            {% else %}
+                <p>No conversations found</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    <form onsubmit="return validateMessage()" action="{{ path('send_message', {'user1Id': app.request.attributes.get('user1Id'), 'user2Id': app.request.attributes.get('user2Id') }) }}" method="post">
+      
+        <input type="text" id="message" name="message" class="message-input" placeholder="Type your message..." required>
+            <span id="errorMessage" class="error-message"></span>
+
+        <button type="submit" class="send-button">Send Message</button>
+    </form>
+
+</body>
+<script>
+    function validateMessage() {
+        // Get the message input and error message span
+        var messageInput = document.getElementById('message');
+        var errorMessageSpan = document.getElementById('errorMessage');
+
+        // Trim and replace multiple spaces with a single space
+        var cleanedMessage = messageInput.value.trim().replace(/\s+/g, ' ');
+
+        // Check if the cleaned message is valid
+        if (cleanedMessage === '') {
+            // Display the error message
+            errorMessageSpan.textContent = 'Please enter a valid message.';
+            
+            // Prevent the form submission
+            return false;
+        }
+
+        // Clear any previous error messages
+        errorMessageSpan.textContent = '';
+
+        // Update the input value with the cleaned message
+        messageInput.value = cleanedMessage;
+
+        // If the message is valid, the form will be submitted
+        return true;
+    }
+</script>
+</html>
+{% endblock %}

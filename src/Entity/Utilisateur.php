@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -19,28 +21,28 @@ class Utilisateur
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=40, nullable=false)
      */
-    private ?String $nom;
+    private $nom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="prenom", type="string", length=40, nullable=false)
      */
-    private ?String $prenom;
+    private $prenom;
 
     /**
      * @var string
      *
      * @ORM\Column(name="date_naissance", type="string", length=10, nullable=false)
      */
-    private ?String $dateNaissance;
+    private $dateNaissance;
 
     /**
      * @var string
@@ -54,49 +56,49 @@ class Utilisateur
      *
      * @ORM\Column(name="age", type="integer", nullable=false)
      */
-    private ?int $age;
+    private $age;
 
     /**
      * @var string
      *
      * @ORM\Column(name="pic", type="string", length=500, nullable=false)
      */
-    private ?String $pic;
+    private $pic;
 
     /**
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=50, nullable=false)
      */
-    private ?String $username;
+    private $username;
 
     /**
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=50, nullable=false)
      */
-    private ?String $password;
+    private $password;
 
     /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=50, nullable=false)
      */
-    private ?String $email;
+    private $email;
 
     /**
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=50, nullable=false)
      */
-    private ?String $type;
+    private $type;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
      *
      * @ORM\ManyToMany(targetEntity="Groups", mappedBy="userid")
      */
-
+    private $groupid = array();
 
     /**
      * Constructor
@@ -105,6 +107,7 @@ class Utilisateur
     {
         $this->groupid = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -115,7 +118,7 @@ class Utilisateur
         return $this->nom;
     }
 
-    public function setNom(?string $nom): self
+    public function setNom(string $nom): static
     {
         $this->nom = $nom;
 
@@ -127,7 +130,7 @@ class Utilisateur
         return $this->prenom;
     }
 
-    public function setPrenom(?string $prenom): self
+    public function setPrenom(string $prenom): static
     {
         $this->prenom = $prenom;
 
@@ -139,7 +142,7 @@ class Utilisateur
         return $this->dateNaissance;
     }
 
-    public function setDateNaissance(?string $dateNaissance): self
+    public function setDateNaissance(string $dateNaissance): static
     {
         $this->dateNaissance = $dateNaissance;
 
@@ -151,7 +154,7 @@ class Utilisateur
         return $this->cin;
     }
 
-    public function setCin(?string $cin): self
+    public function setCin(string $cin): static
     {
         $this->cin = $cin;
 
@@ -163,7 +166,7 @@ class Utilisateur
         return $this->age;
     }
 
-    public function setAge(?int $age): self
+    public function setAge(int $age): static
     {
         $this->age = $age;
 
@@ -175,7 +178,7 @@ class Utilisateur
         return $this->pic;
     }
 
-    public function setPic(?string $pic): self
+    public function setPic(string $pic): static
     {
         $this->pic = $pic;
 
@@ -187,7 +190,7 @@ class Utilisateur
         return $this->username;
     }
 
-    public function setUsername(?string $username): self
+    public function setUsername(string $username): static
     {
         $this->username = $username;
 
@@ -199,7 +202,7 @@ class Utilisateur
         return $this->password;
     }
 
-    public function setPassword(?string $password): self
+    public function setPassword(string $password): static
     {
         $this->password = $password;
 
@@ -211,7 +214,7 @@ class Utilisateur
         return $this->email;
     }
 
-    public function setEmail(?string $email): self
+    public function setEmail(string $email): static
     {
         $this->email = $email;
 
@@ -223,10 +226,21 @@ class Utilisateur
         return $this->type;
     }
 
-    public function setType(?string $type): self
+    public function setType(string $type): static
     {
         $this->type = $type;
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Groups>
+     */
+    public function getGroupid(): Collection
+    {
+        return $this->groupid;
+    }
+
+    
+
 }

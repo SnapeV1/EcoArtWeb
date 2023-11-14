@@ -3,54 +3,126 @@
 {% block body %}
     {{ parent() }}
     <!-- In the head section -->
-<style>
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        text-align: center; /* Center table content */
-    }
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center; /* Center table content */
+        }
 
-    th, td {
-        padding: 8px;
-        text-align: center; /* Center table cell content */
-        border-bottom: 1px solid #ddd;
-    }
+        th, td {
+            padding: 8px;
+            text-align: center; /* Center table cell content */
+            border-bottom: 1px solid #ddd;
+        }
 
-    th {
-        background-color: #f2f2f2;
-    }
+        th {
+            background-color: #f2f2f2;
+        }
 
-    tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
 
-    tr:hover {
-        background-color: #ddd;
-    }
-    .display{
-          text-align: center;
-    }
-</style>
+        tr:hover {
+            background-color: #ddd;
+        }
+        .display {
+            text-align: center;
+        }
+    </style>
 
     <h1 style="text-align: center;">Members of the Group</h1>
-    <div style="display: flex; justify-content: center;">
-        <table style="width: 70%;">
-            <tr>
-                <th>Username</th>
-                <th>CIN</th>
-                <th>Email</th>
-                <th>Date of Birth</th>
-                <th>Role</th>
-            </tr>
-            {% for member in members %}
-                <tr>
-                    <td>{{ member.getUser().getUsername() }}</td>
-                    <td>{{ member.getUser().getCin() }}</td>
-                    <td>{{ member.getUser().getEmail() }}</td>
-                    <td>{{ member.getUser().getDateNaissance()|date('Y-m-d') }}</td>
-                    <td>{{ member.getRole() }}</td>
-                </tr>
-            {% endfor %}
-        </table>
-    </div>
+  
+<div style="display: flex; justify-content: center;">
+    <table style="width: 70%;">
+        <tr>
+            <th>Username</th>
+            <th>CIN</th>
+            <th>Email</th>
+            <th>Date of Birth</th>
+            <th>Role</th>
+            <th></th>
+        </tr>
+      {% for member in members %}
+    <tr>
+        <td>{{ member.getUser().getUsername() }}</td>
+        <td>{{ member.getUser().getCin() }}</td>
+        <td>{{ member.getUser().getEmail() }}</td>
+        <td>{{ member.getUser().getDateNaissance()|date('Y-m-d') }}</td>
+        <td>{{ member.getRole() }}</td>
+        <td>
+            <form action="{{ path('delete_member', {'groupId': app.request.get('id'), 'userId': member.getUser().getId()}) }}" method="post">
+    <button type="submit" style="background-color: #f44336; color: white; padding: 5px 3px; border: none; border-radius: 4px; cursor: pointer;">
+        Delete
+    </button></form>
+<a href="#" class="btn btn-primary" onclick="return editmember({{ member.getUser().getid() }})" style="text-decoration: none; padding: 5px 10px; border-radius: 5px; color: white;">Edit</a>
+</td>
+
+
+
+
+       
+    </tr>
+
+
+<tr id="editForm_{{ member.getUser().getid() }}" style="display: none;">
+    <td colspan="4" style="padding: 10px;">
+       
+<form action="{{ path('update_member', {'memberid': member.getUser().getId(), 'groupid': app.request.get('id'), 'userid': userid}) }}" method="post">   
+   <select name="member_role">
+    <option value="Moderator" >Moderator</option>
+    <option value="Member">Member</option>
+</select>
+
+    <button type="submit">Save</button>
+</form>
+    </td>
+</tr>
+    
+{% endfor %}
+
+           
+    </table>
+</div>
+
+
+<div style="text-align: center;">
+    <a href="javascript:void(0);" onclick="toggleAddMembersSection()" class="add-member-button">Add Members</a>
+</div>
+<div id="addMembersSection" style="display: none; text-align: center;">
+    <br><br>
+<form id="add-members-form" action="{{ path('addmember', {'id': app.request.get('id'), 'userId': userid}) }}" method="POST" onsubmit="submitMembers(event)">
+        <label for="member-email" style="display: block; margin-bottom: 10px;">Member Email:</label>
+        <input type="email" id="member-email" name="memberEmail" required style="padding: 8px;"><br><br>
+        <!-- Additional form fields for member details -->
+        <button type="submit" style="padding: 8px 20px; background-color: #4CAF50; color: white; border: none;">Add Member</button>
+    </form>
+</div>
+
+
+
+
+
+    <script>
+function toggleAddMembersSection() {
+    var section = document.getElementById('addMembersSection');
+    if (section.style.display === 'none') {
+        section.style.display = 'block';
+    } else {
+        section.style.display = 'none';
+    }
+}
+
+function editmember(memberid) {
+    var editForm = document.getElementById("editForm_" + memberid);
+
+    if (editForm) {
+        editForm.style.display = "table-row"; // Display the edit form
+    }
+
+    return false;
+}
+
+</script>
 {% endblock %}

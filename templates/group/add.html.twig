@@ -12,6 +12,8 @@
             <div style="margin-bottom: 15px;">
                 {{ form_label(f.nom) }}
                 {{ form_widget(f.nom, { 'attr': {'class': 'form-control', 'placeholder': 'Enter Group Name'} }) }}
+               {{ form_errors(f.nom) }}
+
             </div>
             
             <div style="margin-bottom: 15px;">

@@ -1,0 +1,17 @@
+{# templates/test/index.html.twig #}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Repository</title>
+</head>
+<body>
+    <h1>Conversation Details</h1>
+    <ul>
+        <li><strong>ID:</strong> {{ conversation.getidconv() }}</li>
+     
+        <li><strong>Message:</strong> {{ conversation.msg }}</li>
+        <li><strong>User ID 1:</strong> {{ conversation.iduser1 }}</li>
+        <li><strong>User ID 2:</strong> {{ conversation.iduser2 }}</li>
+    </ul>
+</body>
+</html>

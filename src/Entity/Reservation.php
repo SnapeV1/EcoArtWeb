@@ -2,25 +2,29 @@
 
 namespace App\Entity;
 
-use App\Repository\ReservationRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: ReservationRepository::class)]
- /**
+/**
+ * Reservation
+ *
  * @ORM\Table(name="reservation")
  * @ORM\Entity
  */
 class Reservation
 {
-      /**
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer", name="id")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private ?int $id = null;
+    private $id;
 
     public function getId(): ?int
     {
         return $this->id;
     }
+
+
 }

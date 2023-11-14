@@ -45,4 +45,15 @@ class GroupsRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
+public function getAllWithOwners()
+{
+    return $this->createQueryBuilder('g')
+        ->select('g.id', 'g.nom', 'g.size', 'g.logo', 'u.email')
+        ->leftJoin('App\Entity\Membre', 'm', 'WITH', 'm.group = g.id AND m.role = :role')
+        ->leftJoin('App\Entity\Utilisateur', 'u', 'WITH', 'm.user = u.id')
+        ->setParameter('role', 'Admin')
+        ->getQuery()
+        ->getResult();
+}
+
 }
